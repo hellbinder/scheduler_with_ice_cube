@@ -1,0 +1,14 @@
+.row
+  .col-md-12
+    =simple_form_for @account,  html: { class: 'form-horizontal' } do |f|
+      =f.error_notification
+      =f.input :name
+      =f.input :description
+      %h3 Recurring payment
+      %p Use the following drop down to create a recurring schedule for this account.
+      =f.select_recurring :recurring_schedule,
+      [IceCube::Rule.monthly.day_of_month(1),
+      IceCube::Rule.monthly.day_of_month([1,15])],
+      allow_blank: true
+      
+      =f.button :submit, { class: "btn btn-primary" }

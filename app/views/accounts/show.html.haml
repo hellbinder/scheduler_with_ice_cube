@@ -1,0 +1,18 @@
+%h1= @account.name
+%h3= @account.description
+%h4
+  =link_to 'Back', accounts_path
+  |
+  =link_to 'Edit', edit_account_path(@account)
+  |
+  =link_to 'Create automatic payments', new_account_recurring_payment_path(@account)
+  |
+  =link_to 'Show automatic payments', account_recurring_payments_path(@account)
+.row
+  .col-md-12
+    %ul.list-group
+      =render @payments
+.row
+  .col-md-12
+    %h1 Upcoming Payments
+    

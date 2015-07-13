@@ -1,0 +1,5 @@
+%li.list-group-item
+  =link_to account.name, account
+  %span.badge
+    =link_to "X", account,  method: :delete,  data: { confirm: 'Are you sure you wish to delete this account?' }
+  %span.badge= account.payments.count
